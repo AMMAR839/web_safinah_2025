@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Monitoring Misi</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-rotatedmarker@0.2.0/leaflet.rotatedMarker.js"></script>
+</head>
+<body>
+  <header>
+  <div class="brand">
+    <img src="LOGO.png" alt="Logo" class="logo">
+    <span class="team-name">SAFINAH-ONE NOVITA </span>
+  </div>
+
+  <div class="update-info">
+    Last Update: <span id="counter"></span>1 detik
+  </div>
+</header>
+
+  <main>
+    <!-- Kolom kiri: Data Navigasi + Position Log -->
+    <section class="gabungan">
+      <section class="data-section">
+        <h2>Data Navigasi</h2>
+        <div id="error-message" class="error-message"></div>
+        <div class="isi_data">
+          <div class="kotak"><h3>Timestamp</h3><p id="timestamp">N/A</p></div>
+          <div class="kotak"><h3>Koordinat (DD,DDDD)</h3><p id="formatted_a">N/A</p></div>
+          <div class="kotak">
+            <h3>SOG</h3>
+            <p><span id="sog_kmh">N/A</span> km/h</p>
+          </div>
+          <div class="kotak"><h3>COG</h3><p><span id="cog">N/A</span>°</p></div>
+        </div>
+      </section>
+
+      <section class="missionsection">
+        <h2>Position Log</h2>
+        <div class="data-mission">
+          <div id="mission-persiapan" class="kotak-belum"><p>Persiapan</p></div>
+          <div id="mission-start" class="kotak-belum"><p>Start</p></div>
+          <div id="mission-buoys" class="kotak-belum"><p>Floating ball set</p></div>
+          <div id="mission-imagesurface" class="kotak-belum"><p>Surface Imaging</p></div>
+          <div id="mission-imageunderwater" class="kotak-belum"><p>Underwater Imaging</p></div>
+          <div id="mission-finish" class="kotak-belum"><p>Finish</p></div>
+        </div>
+      </section>
+      <img src="ornamen.png" alt="hiasan" class="ornamen">
+    </section>
+
+    <!-- Kolom tengah: Foto -->
+    <section class="images-section">
+      <h2>Gambar Misi</h2>
+      <div class="images-container">
+        <div class="image-slot">
+          <h3>Kamera Atas</h3>
+          <div id="kamera-depan-container" class="image-gallery"><p>Memuat foto...</p></div>
+        </div>
+        <div class="image-slot">
+          <h3>Kamera Bawah</h3>
+          <div id="kamera-belakang-container" class="image-gallery"><p>Memuat foto...</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kolom kanan: Map -->
+    <section class="mapsection">
+      <h2>Lokasi Misi</h2>
+      <div id="map"></div>
+      <div>
+        <button id="lintasan1" class="tombol-lintasan aktif">Lintasan 1</button>
+        <button id="lintasan2" class="tombol-lintasan">Lintasan 2</button>
+        <button id="tombol_refresh" class="tombol-refresh">Refresh</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2025 Sistem Monitoring Misi</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
