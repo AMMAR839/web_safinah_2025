@@ -1,0 +1,15 @@
+description: Ultralytics deteksibouys model trained on am10ar-5/data.yaml
+author: Ultralytics
+date: '2025-09-06T13:57:07.129337'
+version: 8.3.0
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: hijau
+  1: merah

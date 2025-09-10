@@ -1,5 +1,3 @@
-# Script ini membutuhkan pustaka supabase-py. Jika belum, instal dengan:
-# pip install supabase
 
 import os
 from supabase import create_client, Client

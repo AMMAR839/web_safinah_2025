@@ -14,37 +14,29 @@ TABLE_COG_DATA = "cog_data"
 # Titik-titik yang diberikan, digabungkan menjadi satu daftar
 waypoints = [
     {"latitude": -7.915141, "longitude": 112.588725},
-    {"latitude": -7.915074, "longitude": 112.588742},
-    {"latitude": -7.915074, "longitude": 112.588728},
-    {"latitude": -7.915044, "longitude": 112.588749},
-    {"latitude": -7.915044, "longitude": 112.588739},
-    {"latitude": -7.915024, "longitude": 112.588718},
-    {"latitude": -7.915024, "longitude": 112.588733},
-    {"latitude": -7.914956, "longitude": 112.588791},
-    {"latitude": -7.914967, "longitude": 112.588791},
-    {"latitude": -7.914958, "longitude": 112.58881},
-    {"latitude": -7.914971, "longitude": 112.588809},
-    {"latitude": -7.914961, "longitude": 112.588825},
-    {"latitude": -7.914971, "longitude": 112.588825},
-    {"latitude": -7.91496, "longitude": 112.588838},
-    {"latitude": -7.914972, "longitude": 112.588836},
-    {"latitude": -7.914994, "longitude": 112.588886},
-    {"latitude": -7.914995, "longitude": 112.588902},
-    {"latitude": -7.915038, "longitude": 112.588905},
-    {"latitude": -7.915038, "longitude": 112.588921},
-    {"latitude": -7.915068, "longitude": 112.588900},
-    {"latitude": -7.915069, "longitude": 112.588914},
-    {"latitude": -7.915141, "longitude": 112.588725}
+    {"latitude": -7.915141, "longitude": 112.588725},
+    {"latitude": -7.915141, "longitude": 112.588725},
+  {"latitude": -7.915141, "longitude": 112.588725},
+  {"latitude": -7.915040, "longitude": 112.588735},
+  {"latitude": -7.915000, "longitude": 112.5887255},
+  {"latitude": -7.9149610, "longitude": 112.588791},
+  {"latitude": -7.9149645, "longitude": 112.5888095},
+  {"latitude": -7.914966, "longitude": 112.5888095},
+  {"latitude": -7.914966, "longitude": 112.5888095},
+  {"latitude": -7.9149945, "longitude": 112.588894},
+  {"latitude": -7.915038, "longitude": 112.588913},
+  {"latitude": -7.9150685, "longitude": 112.588907},
+  {"latitude": -7.915141, "longitude": 112.588725}
 ]
 
 # Urutkan waypoints untuk mendapatkan jalur yang logis (berdasarkan lintang)
-waypoints.sort(key=lambda p: (p["latitude"], p["longitude"]))
+# waypoints.sort(key=lambda p: (p["latitude"], p["longitude"]))
 
 # Global variables for simulation
 current_waypoint_index = 0
 direction = 1  # 1 for forward, -1 for backward
 progress = 0.0  # Interpolation progress between waypoints (0.0 to 1.0)
-step_size = 0.1 # Increase this for faster movement between points
+step_size = 1 # Increase this for faster movement between points
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 last_time_delete = time.time()
@@ -129,7 +121,7 @@ def run_simulation(interval_seconds=1):
             last_time_delete = time.time()
             periodic_delete_all_data()
         
-        time.sleep(interval_seconds)
+        # time.sleep(interval_seconds)
 
 if __name__ == "__main__":
     run_simulation()
